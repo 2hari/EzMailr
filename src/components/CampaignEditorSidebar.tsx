@@ -1,3 +1,5 @@
+import { closestCenter, DndContext, DragEndEvent } from "@dnd-kit/core";
+import Draggable from "./Draggable";
 import DraggableEmailBlocksGroup from "./DraggableEmailBlocksGroup";
 import LineTabs from "./LineTabs";
 
@@ -13,6 +15,12 @@ export default function CampaignEditorSidebar({
   tabs: Tabs[];
   setTabs: React.Dispatch<React.SetStateAction<Tabs[]>>;
 }) {
+  const handleDragEnd = (e: DragEndEvent) => {
+    const { active, over } = e;
+    console.log("ACTIVE", active);
+    console.log("OVER", over);
+  };
+
   return (
     <>
       <LineTabs tabs={tabs} setTabs={setTabs} />
