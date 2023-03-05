@@ -24,8 +24,14 @@ import { api } from "~/utils/api";
 import { Block } from "~/campaignEditor/utils/blockattributes";
 import renderToHtml from "~/campaignEditor/utils/renderToHtml";
 import Head from "next/head";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
+import EditorCommandPalette from "~/campaignEditor/EditorCommandPalette";
+import EmailPreviewModal from "~/campaignEditor/EmailPreviewModal";
 
 export default function CampaignBuilder() {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isPreviewEmailModalOpen, setIsPreviewEmailModalOpen] = useState(false);
+
   const router = useRouter();
 
   const [tabs, setTabs] = useState([
@@ -166,16 +172,39 @@ export default function CampaignBuilder() {
     }
   };
 
+  useEffect(() => {
+    const onKeyDown = (e: any) => {
+      if (e.metaKey && e.code === "KeyK") {
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
   return (
     <>
       <Head>
-        <title>
-          Edit {getCampaignEditorInfo?.data?.name ?? "Campaign"} - EzMailr
-        </title>
+        <title>{`Edit ${
+          getCampaignEditorInfo?.data?.name ?? "Campaign"
+        } - EzMailr`}</title>
         <meta name="description" content="Visual email builder" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <EmailPreviewModal
+        open={isPreviewEmailModalOpen}
+        setOpen={setIsPreviewEmailModalOpen}
+        subject={getCampaignEditorInfo.data?.subject ?? ""}
+        sendFromName={getCampaignEditorInfo.data?.sendFromName ?? ""}
+        htmlContentFunc={() => renderToHtml(blocks, globalStyles)}
+      />
+      <EditorCommandPalette
+        open={isCommandPaletteOpen}
+        setOpen={setIsCommandPaletteOpen}
+      />
       <DndContext
+        modifiers={[restrictToWindowEdges]}
         collisionDetection={closestCenter}
         onDragStart={(e) => {
           setActiveId(e.active.id);
@@ -209,11 +238,15 @@ export default function CampaignBuilder() {
               />
             </div>
             <div className="max-h-[calc(100vh-117px)] flex-1 overflow-auto bg-gray-200">
-              <div className="sticky top-0 flex h-[62px] w-full items-center justify-end border-b border-gray-200 bg-white px-6">
+              <div className="sticky top-0 flex h-[62px] w-full items-center justify-between border-b border-gray-200 bg-white px-6">
+                <p className="rounded-md bg-gray-100 p-2 text-xs">
+                  Tip: Access the command palette with ⌘K
+                </p>
                 <Button
                   appearance="secondary"
                   size="sm"
                   onClick={() => {
+                    setIsPreviewEmailModalOpen(true);
                     // console.log(renderToHtml(blocks, globalStyles));
                   }}
                 >

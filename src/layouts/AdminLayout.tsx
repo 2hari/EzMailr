@@ -73,7 +73,7 @@ export default function AdminLayout({
   return (
     <>
       <Head>
-        <title>{pageHeading ?? "Dashboard"} - EzMailr</title>
+        <title>{`Edit ${pageHeading ?? "Dashboard"} - EzMailr`}</title>
         <meta name="description" content="Visual email builder" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
