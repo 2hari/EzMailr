@@ -19,7 +19,7 @@ const MyApp: any = ({
       <Head>
         <script
           defer
-          data-domain="quicksend.seperi.app"
+          data-domain="ezmailr.seperi.app"
           src="https://plausible.io/js/script.js"
         ></script>
       </Head>
