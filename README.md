@@ -2,7 +2,7 @@
 
 # ✉️ EzMailr
 
-EzMailr is a visual email builder usig drag and drop. Once the EMail is designed users can upload contacts, create campaigns and send the email.
+EzMailr is a visual email builder using drag and drop to design and code your email. Once the Email is built users can upload contacts, create campaigns and send the email.
 
 ## 💡 Features
 
@@ -31,6 +31,7 @@ This project's tech stack has been built around the T3 Stack, as well as other l
 - dnd-kit
 - Nodemailer
 - React Hot Toast
+- vercel (deployment & cron jobs)
 
 ## 📺 Demo Video
 https://github.com/2hari/EzMailr/assets/73457568/22376f8c-f7f6-46d0-9533-91c77cc1b062
