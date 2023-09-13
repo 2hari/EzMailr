@@ -1,4 +1,4 @@
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 export default function Logo({
@@ -16,7 +16,7 @@ export default function Logo({
     <Link href="/">
       <div className={`${justifyContent} align-center flex`}>
         <EnvelopeIcon
-            width={size === "lg" ? 40 : 30}
+          width={size === "lg" ? 40 : 30}
           className={`${
             colorTheme === "light" ? "text-white" : "text-blue-600"
           } mr-2`}

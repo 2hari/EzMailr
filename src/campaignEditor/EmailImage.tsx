@@ -19,7 +19,7 @@ export default function EmailImage({
         <tr>
           <td style={styles.container}>
             <img
-              src={src === "" ? process.env.NEXT_PUBLIC_NO_IMAGE_URL : src}
+              src={src === "" ? "/noimage.jpg" : src}
               alt={alt}
               width="100%"
             />

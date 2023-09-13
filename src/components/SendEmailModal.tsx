@@ -52,10 +52,10 @@ export default function SendEmailModal({
       open={open}
       setOpen={setOpen}
       actionOnClick={() => {
-        toast.error("Emails can't be sent in this demo", {
-          position: "bottom-center",
-        });
-        return;
+        // toast.error("Emails can't be sent in this demo", {
+        //   position: "bottom-center",
+        // });
+        // return;
         if (list) {
           if (tabs[0]?.current) {
             void toast.promise(

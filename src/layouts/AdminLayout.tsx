@@ -25,6 +25,7 @@ const initialNavigation = [
     icon: HomeIcon,
     current: true,
   },
+  { name: "Lists", href: "/admin/lists", icon: UsersIcon, current: false },
   {
     name: "Campaigns",
     href: "/admin/campaigns",
@@ -37,7 +38,6 @@ const initialNavigation = [
     icon: DocumentTextIcon,
     current: false,
   },
-  { name: "Lists", href: "/admin/lists", icon: UsersIcon, current: false },
   {
     name: "Reports",
     href: "/admin/reports",
