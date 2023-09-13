@@ -29,14 +29,15 @@ export default function Home() {
             </Link>
             <p className="py-3">Or</p>
             <div className=" flex items-center gap-x-6">
-              <Button appearance="primary" size="md">
-                <Link href="/auth/sign-up">Sign up</Link>
-              </Button>
-              <Link href="/auth/sign-in">
-                <Button appearance="secondary" size="md">
-                  Login
+              <Link href="/auth/sign-up">
+                <Button appearance="primary" size="md">
+                  Sign up
                 </Button>
               </Link>
+
+              <Button appearance="secondary" size="md">
+                <Link href="/auth/sign-in">Login</Link>
+              </Button>
             </div>
           </div>
           <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32">
