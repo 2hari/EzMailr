@@ -21,7 +21,11 @@ export default function Home() {
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Design, develop, and send emails fast, with confidence.
             </p>
-            <Link href="/admin/campaign/edit/example-builder">
+            <Link
+              href="/admin/campaign/edit/example-builder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <p className="mt-10 w-fit rounded-full bg-green-200 px-5 py-1 text-sm font-medium text-green-900 hover:text-green-700">
                 Try the builder without an account{" "}
                 <span aria-hidden="true">→</span>
