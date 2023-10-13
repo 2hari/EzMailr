@@ -1,9 +1,9 @@
-import { type AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
+import { type AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 
-import { api } from "~/utils/api";
-
-import "~/styles/globals.css";
+import { api } from '~/utils/api';
+import '@shopify/polaris/build/esm/styles.css';
+import '~/styles/globals.css';
 
 const MyApp = ({
   Component,
